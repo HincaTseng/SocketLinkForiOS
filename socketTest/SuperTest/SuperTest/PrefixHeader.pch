@@ -1,0 +1,31 @@
+//
+//  PrefixHeader.pch
+//  SuperTest
+//
+//  Created by 曾宪杰 on 2018/9/27.
+//  Copyright © 2018 zengxianjie. All rights reserved.
+//
+//http://tool.chinaz.com/tools/unicode.aspx
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __OBJC__
+
+//测试 localhost
+//#define kAppID @""
+
+
+#define kAppID @""
+#define kPort 80
+#define kSuggest 5678
+#define kHost @"127.0.0.1"
+//也可以直接用地址
+#define KURL [@"http://127.0.0.1:5678/" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]]
+
+#endif
+
+#endif /* PrefixHeader_pch */
