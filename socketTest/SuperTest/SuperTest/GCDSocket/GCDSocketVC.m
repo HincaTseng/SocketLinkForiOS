@@ -131,6 +131,11 @@ typedef NS_ENUM(NSInteger,SocketState) {
     _isOpen = NO;
     [self disconnect];
 }
+
+- (IBAction)getPostBtn:(id)sender {
+//    [self get];
+}
+
 // 发消息
 - (IBAction)sendBtn:(id)sender {
      [self.view endEditing:YES];
@@ -242,7 +247,8 @@ typedef NS_ENUM(NSInteger,SocketState) {
 }
 
 - (void)showMessageWithStr:(NSString *)obj {
-   
+    self.teLog.text = [NSString stringWithFormat:@"%@\n %@",self.teLog.text,obj];
+    
     NSLog(@"message: %@\n",obj);
 }
 
