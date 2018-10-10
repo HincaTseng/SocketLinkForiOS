@@ -14,15 +14,15 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #ifdef __OBJC__
-
+#import <UIKit/UIKit.h>
 //测试 localhost
 //#define kAppID @""
 
 
-#define kAppID @""
-#define kPort 80
-#define kSuggest 5678
-#define kHost @"127.0.0.1"
+static  NSString *const kAppID = @"";
+static int const kPort = 80;
+static int const kSuggest = 8088;
+static NSString *const kHost = @"localhost";
 //也可以直接用地址
 #define KURL [@"http://127.0.0.1:5678/" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]]
 
