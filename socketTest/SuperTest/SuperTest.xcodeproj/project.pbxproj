@@ -21,6 +21,7 @@
 		BF084E7721244FD60043DA57 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF084E6E21244FC20043DA57 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF084E7F212451890043DA57 /* SuperFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF084E7E212451890043DA57 /* SuperFramework.framework */; };
 		BF084E852124531E0043DA57 /* NSTimer+XJWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF084E832124531E0043DA57 /* NSTimer+XJWeakTimer.m */; };
+		BF4D9B9E2179737F00A0ACE6 /* xsocks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF4D9B9D2179737F00A0ACE6 /* xsocks.a */; };
 		BFA296BB2148BF9800C1EBF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA296BA2148BF9800C1EBF6 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,8 @@
 		BF084E7E212451890043DA57 /* SuperFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SuperFramework.framework; sourceTree = "<group>"; };
 		BF084E832124531E0043DA57 /* NSTimer+XJWeakTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+XJWeakTimer.m"; sourceTree = "<group>"; };
 		BF084E842124531E0043DA57 /* NSTimer+XJWeakTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+XJWeakTimer.h"; sourceTree = "<group>"; };
+		BF4D9B9C2179737F00A0ACE6 /* xsocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xsocks.h; sourceTree = "<group>"; };
+		BF4D9B9D2179737F00A0ACE6 /* xsocks.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = xsocks.a; sourceTree = "<group>"; };
 		BFA296BA2148BF9800C1EBF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BFF6ADDA215CABFB0089F58D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +93,7 @@
 			files = (
 				BFA296BB2148BF9800C1EBF6 /* Foundation.framework in Frameworks */,
 				BF084E7621244FD60043DA57 /* CocoaAsyncSocket.framework in Frameworks */,
+				BF4D9B9E2179737F00A0ACE6 /* xsocks.a in Frameworks */,
 				BF084E7F212451890043DA57 /* SuperFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,6 +139,7 @@
 		BF084E3B21244FAD0043DA57 /* SuperTest */ = {
 			isa = PBXGroup;
 			children = (
+				BF4D9B9B2179737F00A0ACE6 /* ios */,
 				BF084E822124531E0043DA57 /* NSTimer */,
 				BF084E7E212451890043DA57 /* SuperFramework.framework */,
 				BF084E6E21244FC20043DA57 /* CocoaAsyncSocket.framework */,
@@ -188,6 +193,15 @@
 				BF084E842124531E0043DA57 /* NSTimer+XJWeakTimer.h */,
 			);
 			path = NSTimer;
+			sourceTree = "<group>";
+		};
+		BF4D9B9B2179737F00A0ACE6 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				BF4D9B9C2179737F00A0ACE6 /* xsocks.h */,
+				BF4D9B9D2179737F00A0ACE6 /* xsocks.a */,
+			);
+			path = ios;
 			sourceTree = "<group>";
 		};
 		BFA296B92148BF9800C1EBF6 /* Frameworks */ = {
@@ -521,6 +535,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SuperTest",
 					"$(PROJECT_DIR)/SuperTest/WebSocket",
+					"$(PROJECT_DIR)/SuperTest/ios",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = zengxianjie.SuperTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -550,6 +565,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SuperTest",
 					"$(PROJECT_DIR)/SuperTest/WebSocket",
+					"$(PROJECT_DIR)/SuperTest/ios",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = zengxianjie.SuperTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";

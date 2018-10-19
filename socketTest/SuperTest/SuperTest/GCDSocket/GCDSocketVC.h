@@ -3,4 +3,6 @@
 
 @interface GCDSocketVC : UIViewController
 
+@property (nonatomic,assign) int pr;
+
 @end

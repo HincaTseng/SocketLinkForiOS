@@ -20,11 +20,12 @@
 
 
 static  NSString *const kAppID = @"";
-static int const kPort = 80;
-static int const kSuggest = 8088;
+static int const kPort = 5678;
+static int const kSuggest = 5678;
 static NSString *const kHost = @"localhost";
 //也可以直接用地址
-#define KURL [@"http://127.0.0.1:5678/" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]]
+#define KURL @"http://127.0.0.1:8080/"
+//#define KURL [@"http://127.0.0.1:80/" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]]
 
 #endif
 

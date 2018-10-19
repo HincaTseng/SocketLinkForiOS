@@ -2,7 +2,7 @@
 
 #import "AppDelegate.h"
 #import "GCDSocketVC.h"
-
+#import "xsocks.h"
 
 
 //#import "xsocks.h"
@@ -19,17 +19,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //启动SDK并初始化
-    //    XSocksInit(@"");
+//        XSocksInit(@"");
     
-//    XSocksInit(kAppID);
+    XSocksInit(kAppID);
     //可在此处打开所有app中用到的源机端口，也可在调用的页面打开
     //此测试程序只用到了5678端口，执行一次XSocksOpen方法即可
     //如果有多个端口需执行多次，端口打开失败返回-1，
     //调用方式：127.0.0.1:[port]，调用前判断port是否获取到正确的端口值（不等于-1）
-//    int port = XSocksOpen(0, kPort, kSuggest);//0,80,5678
-//    NSLog(@"port is %d",port);
+    port = XSocksOpenBySuggest(0, 5678, 0);
+    XSocksOpenBySuggest(0,80,8080);
+    NSLog(@"port is %d",port);
     
     GCDSocketVC *socketVC = [[GCDSocketVC alloc] init];
+    socketVC.pr = port;
     self.window.rootViewController = socketVC;
     [self.window makeKeyAndVisible];
     
@@ -37,12 +39,12 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-//    int port = XSocksOpen(0, kPort, kSuggest);
+   XSocksOpenBySuggest(0, 5678, port);
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application{
     //关闭端口
-//    XSocksClose(0, kPort);
+     XSocksOpenBySuggest(0, 5678, port);
 }
 @end
 

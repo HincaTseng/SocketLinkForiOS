@@ -32,7 +32,7 @@ typedef NS_ENUM(NSInteger,SocketState) {
 
     self.dataArr = [NSMutableArray array];
     self.localTF.text = @"127.0.0.1";//localhost 127.0.0.1
-    self.portTF.text = @"8080";
+    self.portTF.text = [NSString stringWithFormat:@"%d",_pr] ;
     _isOpen = NO;
     
 }
@@ -42,7 +42,7 @@ typedef NS_ENUM(NSInteger,SocketState) {
     _socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
     
     NSError *error = nil;
-    BOOL isContent = [_socket connectToHost:self.localTF.text onPort:[self.portTF.text intValue] withTimeout:10 error:&error];
+    BOOL isContent = [_socket connectToHost:self.localTF.text onPort:_pr withTimeout:10 error:&error];
     if (isContent) {
         NSLog(@">>>>>>>>已连接服务器");
         self.teLog.text = @">>>>>>>>已连接服务器";
@@ -105,6 +105,7 @@ typedef NS_ENUM(NSInteger,SocketState) {
     // 超时设置为附属，表示不会使用超时
     SocketManager * manager = [SocketManager shareSocketManager];
     [manager.socket readDataWithTimeout:-1 tag:tag];
+    
 }
 //读消息
 -(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
@@ -115,7 +116,7 @@ typedef NS_ENUM(NSInteger,SocketState) {
     //持续接收服务端的数据
      SocketManager * manager = [SocketManager shareSocketManager];
     [manager.socket readDataWithTimeout:-1 tag:tag];
-    self.teLog.text = [NSString stringWithFormat:@"<<<<<<收到数据 %@",msg];
+    [self showMessageWithStr:msg];
     NSLog(@"<<<<<<收到数据 %@",msg);
 }
 
@@ -133,7 +134,7 @@ typedef NS_ENUM(NSInteger,SocketState) {
 }
 
 - (IBAction)getPostBtn:(id)sender {
-//    [self get];
+    [self get];
 }
 
 // 发消息
@@ -219,6 +220,7 @@ typedef NS_ENUM(NSInteger,SocketState) {
 }
 
 - (void)get {
+    
     NSURL *url = [NSURL URLWithString:KURL];
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
@@ -247,7 +249,7 @@ typedef NS_ENUM(NSInteger,SocketState) {
 }
 
 - (void)showMessageWithStr:(NSString *)obj {
-    self.teLog.text = [NSString stringWithFormat:@"%@\n %@",self.teLog.text,obj];
+    self.teLog.text = [self.teLog.text stringByAppendingFormat:@"%@\n", obj];
     
     NSLog(@"message: %@\n",obj);
 }
