@@ -31,3 +31,21 @@ static NSString *const kHost = @"localhost";
 #endif
 
 #endif /* PrefixHeader_pch */
+
+/*
+ 
+ //要测试的各种状态
+ wifi open 后没网，
+ wifi open 后台断网
+ wifi open 后台断网
+ 
+ 4G open 后没网
+ 4G open 后台 4G
+ 4G open 后台 wifi
+ 
+ 没网 open 点连接
+ 没网 open 后有网
+ 
+ 锁屏
+ 
+ */
