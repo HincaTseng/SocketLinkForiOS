@@ -22,6 +22,7 @@ typedef NS_ENUM(NSInteger,SocketState) {
 @property (weak, nonatomic) IBOutlet UITextField *portTF;
 @property (nonatomic,assign) BOOL isOpen; //是否连接
 @property (weak, nonatomic) IBOutlet UITextView *teLog;
+@property (nonatomic,assign) int port;
 
 @end
 
@@ -32,17 +33,21 @@ typedef NS_ENUM(NSInteger,SocketState) {
 
     self.dataArr = [NSMutableArray array];
     self.localTF.text = @"127.0.0.1";//localhost 127.0.0.1
-    self.portTF.text = [NSString stringWithFormat:@"%d",_pr] ;
+
     _isOpen = NO;
     
 }
 //创建
 - (void)createSocket {
+    
+    _port = XSocksOpenBySuggest(0, kPort, kSuggest);
+    
+    self.portTF.text = [NSString stringWithFormat:@"%d",_port] ;
     _isOpen = YES;
     _socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
     
     NSError *error = nil;
-    BOOL isContent = [_socket connectToHost:self.localTF.text onPort:_pr withTimeout:10 error:&error];
+    BOOL isContent = [_socket connectToHost:self.localTF.text onPort:_port withTimeout:10 error:&error];
     if (isContent) {
         NSLog(@">>>>>>>>已连接服务器");
         self.teLog.text = @">>>>>>>>已连接服务器";
@@ -177,6 +182,7 @@ typedef NS_ENUM(NSInteger,SocketState) {
 
 #pragma mark - get post
 - (void)postS {
+    XSocksOpenBySuggest(0,80,8080);
     //1.确定请求路径
     NSURL *url = [NSURL URLWithString:KURL];
     //2.创建请求对象
@@ -202,6 +208,7 @@ typedef NS_ENUM(NSInteger,SocketState) {
 }
 
 - (void)post {
+    XSocksOpenBySuggest(0,80,8080);
     NSURL *url = [NSURL URLWithString:KURL];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"post";
@@ -220,7 +227,7 @@ typedef NS_ENUM(NSInteger,SocketState) {
 }
 
 - (void)get {
-    
+    XSocksOpenBySuggest(0,80,8080);
     NSURL *url = [NSURL URLWithString:KURL];
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
