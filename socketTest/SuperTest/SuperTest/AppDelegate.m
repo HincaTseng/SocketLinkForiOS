@@ -10,7 +10,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    //在第一行添加
     XSocksInit(kAppID);
     
     GCDSocketVC *socketVC = [[GCDSocketVC alloc] init];
@@ -21,12 +21,14 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+    //在第一行添加
     XSocksRestore();
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application{
-    //关闭端口
+    //在第一行添加
     XSocksSave();
 }
+
 @end
 

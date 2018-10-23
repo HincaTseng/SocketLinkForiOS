@@ -40,7 +40,9 @@ typedef NS_ENUM(NSInteger,SocketState) {
 //创建
 - (void)createSocket {
     
-    _port = XSocksOpenBySuggest(0, kPort, kSuggest);
+//    _port = XSocksOpenBySuggest(0, kPort, kSuggest);
+    
+    _port = XSocksOpen(0, kPort);
     
     self.portTF.text = [NSString stringWithFormat:@"%d",_port] ;
     _isOpen = YES;
@@ -49,7 +51,6 @@ typedef NS_ENUM(NSInteger,SocketState) {
     NSError *error = nil;
     BOOL isContent = [_socket connectToHost:self.localTF.text onPort:_port withTimeout:10 error:&error];
     if (isContent) {
-        NSLog(@">>>>>>>>已连接服务器");
         self.teLog.text = @">>>>>>>>已连接服务器";
     } else {
         NSLog(@"error %@",error.description);
