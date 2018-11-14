@@ -15,12 +15,15 @@
 
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
+#import <CocoaAsyncSocket/CocoaAsyncSocket.h>
+#import <SuperFramework/SocketManager.h>
+
 #import "xsocks.h"
-//测试 localhost
-//#define kAppID @""
+
 
 
 static  NSString *const kAppID = @"";
+
 static int const kPort = 5678;
 static int const kSuggest = 0;
 static NSString *const kHost = @"localhost";
@@ -35,6 +38,7 @@ static NSString *const kHost = @"localhost";
 /*
  
  //要测试的各种状态
+  锁屏
  wifi open 后没网，
  wifi open 后台断网
  wifi open 后台断网
@@ -46,6 +50,6 @@ static NSString *const kHost = @"localhost";
  没网 open 点连接
  没网 open 后有网
  
- 锁屏
+
  
  */
