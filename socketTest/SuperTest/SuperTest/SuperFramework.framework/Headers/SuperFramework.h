@@ -1,3 +1,10 @@
+//
+//  SuperFramework.h
+//  SuperFramework
+//
+//  Created by 曾宪杰 on 2018/11/14.
+//  Copyright © 2018 zengxianjie. All rights reserved.
+//
 
 #import <UIKit/UIKit.h>
 
@@ -12,7 +19,3 @@ FOUNDATION_EXPORT const unsigned char SuperFrameworkVersionString[];
 #import <SuperFramework/SuperFramework.h>
 
 #import <SuperFramework/SocketManager.h>
-
-#import <SuperFramework/HAMLogOutputWindow.h>
-
-

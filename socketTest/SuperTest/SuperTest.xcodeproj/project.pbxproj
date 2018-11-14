@@ -19,10 +19,11 @@
 		BF084E7521244FC20043DA57 /* GCDSocketVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF084E7221244FC20043DA57 /* GCDSocketVC.xib */; };
 		BF084E7621244FD60043DA57 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF084E6E21244FC20043DA57 /* CocoaAsyncSocket.framework */; };
 		BF084E7721244FD60043DA57 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF084E6E21244FC20043DA57 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BF084E7F212451890043DA57 /* SuperFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF084E7E212451890043DA57 /* SuperFramework.framework */; };
 		BF084E852124531E0043DA57 /* NSTimer+XJWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF084E832124531E0043DA57 /* NSTimer+XJWeakTimer.m */; };
-		BF4B03E5217D5A530025A28B /* xsocks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF4B03E4217D5A530025A28B /* xsocks.a */; };
+		BF0ECBE221995E6600027843 /* xsocks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0ECBE121995E6600027843 /* xsocks.a */; };
 		BFA296BB2148BF9800C1EBF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA296BA2148BF9800C1EBF6 /* Foundation.framework */; };
+		BFE62057219C46AD004A5E4F /* SuperFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFE62055219C4698004A5E4F /* SuperFramework.framework */; };
+		BFE62058219C46AD004A5E4F /* SuperFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFE62055219C4698004A5E4F /* SuperFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				BF084E7721244FD60043DA57 /* CocoaAsyncSocket.framework in Embed Frameworks */,
+				BFE62058219C46AD004A5E4F /* SuperFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,12 +79,12 @@
 		BF084E7021244FC20043DA57 /* GCDSocketVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDSocketVC.h; sourceTree = "<group>"; };
 		BF084E7121244FC20043DA57 /* GCDSocketVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDSocketVC.m; sourceTree = "<group>"; };
 		BF084E7221244FC20043DA57 /* GCDSocketVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCDSocketVC.xib; sourceTree = "<group>"; };
-		BF084E7E212451890043DA57 /* SuperFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SuperFramework.framework; sourceTree = "<group>"; };
 		BF084E832124531E0043DA57 /* NSTimer+XJWeakTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+XJWeakTimer.m"; sourceTree = "<group>"; };
 		BF084E842124531E0043DA57 /* NSTimer+XJWeakTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+XJWeakTimer.h"; sourceTree = "<group>"; };
-		BF4B03E3217D5A530025A28B /* xsocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xsocks.h; sourceTree = "<group>"; };
-		BF4B03E4217D5A530025A28B /* xsocks.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = xsocks.a; sourceTree = "<group>"; };
+		BF0ECBD82199567900027843 /* xsocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xsocks.h; sourceTree = "<group>"; };
+		BF0ECBE121995E6600027843 /* xsocks.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = xsocks.a; sourceTree = "<group>"; };
 		BFA296BA2148BF9800C1EBF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BFE62055219C4698004A5E4F /* SuperFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SuperFramework.framework; sourceTree = "<group>"; };
 		BFF6ADDA215CABFB0089F58D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,9 +94,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFA296BB2148BF9800C1EBF6 /* Foundation.framework in Frameworks */,
+				BFE62057219C46AD004A5E4F /* SuperFramework.framework in Frameworks */,
 				BF084E7621244FD60043DA57 /* CocoaAsyncSocket.framework in Frameworks */,
-				BF4B03E5217D5A530025A28B /* xsocks.a in Frameworks */,
-				BF084E7F212451890043DA57 /* SuperFramework.framework in Frameworks */,
+				BF0ECBE221995E6600027843 /* xsocks.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,10 +141,10 @@
 		BF084E3B21244FAD0043DA57 /* SuperTest */ = {
 			isa = PBXGroup;
 			children = (
-				BF4B03E2217D5A530025A28B /* ios */,
-				BF084E822124531E0043DA57 /* NSTimer */,
-				BF084E7E212451890043DA57 /* SuperFramework.framework */,
 				BF084E6E21244FC20043DA57 /* CocoaAsyncSocket.framework */,
+				BFE62055219C4698004A5E4F /* SuperFramework.framework */,
+				BF0ECBD72199567900027843 /* ios */,
+				BF084E822124531E0043DA57 /* NSTimer */,
 				BF084E6F21244FC20043DA57 /* GCDSocket */,
 				BF084E3C21244FAD0043DA57 /* AppDelegate.h */,
 				BF084E3D21244FAD0043DA57 /* AppDelegate.m */,
@@ -195,11 +197,11 @@
 			path = NSTimer;
 			sourceTree = "<group>";
 		};
-		BF4B03E2217D5A530025A28B /* ios */ = {
+		BF0ECBD72199567900027843 /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				BF4B03E3217D5A530025A28B /* xsocks.h */,
-				BF4B03E4217D5A530025A28B /* xsocks.a */,
+				BF0ECBE121995E6600027843 /* xsocks.a */,
+				BF0ECBD82199567900027843 /* xsocks.h */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -454,7 +456,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -506,7 +508,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -523,10 +525,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SuperTest",
-					"$(PROJECT_DIR)/SuperTest/WebSocket",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SuperTest/PrefixHeader.pch";
 				INFOPLIST_FILE = SuperTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -534,12 +536,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SuperTest",
-					"$(PROJECT_DIR)/SuperTest/WebSocket",
 					"$(PROJECT_DIR)/SuperTest/ios",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = zengxianjie.SuperTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 arm64e";
 			};
 			name = Debug;
 		};
@@ -553,10 +555,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SuperTest",
-					"$(PROJECT_DIR)/SuperTest/WebSocket",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SuperTest/PrefixHeader.pch";
 				INFOPLIST_FILE = SuperTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -564,12 +566,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SuperTest",
-					"$(PROJECT_DIR)/SuperTest/WebSocket",
 					"$(PROJECT_DIR)/SuperTest/ios",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = zengxianjie.SuperTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 arm64e";
 			};
 			name = Release;
 		};
