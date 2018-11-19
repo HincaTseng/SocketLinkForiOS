@@ -34,14 +34,16 @@
 - (void)createSocket {
     
 //    _port = XSocksOpenBySuggest(0, kPort, kSuggest);
+    
     _port = XSocksOpen(0, kPort);
     
-    self.portTF.text = [NSString stringWithFormat:@"%d",_port] ;
+    self.portTF.text = [NSString stringWithFormat:@"%d",_port];
     
     [SocketManager shareSocketManager];
     [SocketManager shareSocketManager].delegate = self;
     [SocketManager connectServer:self.localTF.text Port:_port];
     //心跳
+    
     [self addTimer];
 }
 
@@ -94,6 +96,9 @@
         __strong typeof(weakSelf) strongSelf = weakSelf;
         [strongSelf upupupheart];
     }];
+    //添加到runloop中
+    [[NSRunLoop mainRunLoop] addTimer:self.heartTime forMode:NSDefaultRunLoopMode];
+    
 }
 
 - (void)removeTimer {
@@ -166,15 +171,21 @@
 }
 
 - (void)get {
-    XSocksOpenBySuggest(0,80,8080);
-//   int port = XSocksOpen(0, kPort);
+//  int port = XSocksOpenBySuggest(0,80,kPort);
+// iOS
+    int port = XSocksOpen(0, 80); //kPort服务端设置的端口号
     
-//    NSString *pr = [NSString stringWithFormat:@"%d",port];
-//    NSString *ob = [NSString stringWithFormat:@"%@%@%@",@"http://127.0.0.1:",pr,@"/minaData/update/list/XcmjResLitst64"];
+    NSString *pr = [NSString stringWithFormat:@"%d",port];
+    
+    //URL: http:// 地址 /minaData/update/list/
+    //接入SDK就是 http://127.0.0.1: 端口号 /minaData/update/list/
+    
+    NSString *ob = [NSString stringWithFormat:@"%@%@",@"http://127.0.0.1:",pr];
+     NSURL *url = [NSURL URLWithString:ob];
 //
-//    NSLog(@"GET \n port is %d\n pr is %@\n ob is %@\n",port,pr,ob);
+    NSLog(@"\nGET \n port is %d\n URL: is %@\n",port,ob);
     
-    NSURL *url = [NSURL URLWithString:KURL];
+   
     
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"

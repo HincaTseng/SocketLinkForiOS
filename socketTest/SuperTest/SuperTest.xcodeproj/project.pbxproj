@@ -20,9 +20,9 @@
 		BF084E7621244FD60043DA57 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF084E6E21244FC20043DA57 /* CocoaAsyncSocket.framework */; };
 		BF084E7721244FD60043DA57 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF084E6E21244FC20043DA57 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF084E852124531E0043DA57 /* NSTimer+XJWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF084E832124531E0043DA57 /* NSTimer+XJWeakTimer.m */; };
+		BF32074A219E91B400BF89DC /* SuperFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF320749219E91B300BF89DC /* SuperFramework.framework */; };
 		BFA296BB2148BF9800C1EBF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA296BA2148BF9800C1EBF6 /* Foundation.framework */; };
-		BFD3D51A219D203B00EA5D75 /* SuperFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD3D519219D203B00EA5D75 /* SuperFramework.framework */; };
-		BFD3D51C219D20CF00EA5D75 /* xsocks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD3D51B219D20CF00EA5D75 /* xsocks.a */; };
+		BFB21B7821A293FE006273F4 /* xsocks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB21B7721A293FE006273F4 /* xsocks.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,9 +80,9 @@
 		BF084E832124531E0043DA57 /* NSTimer+XJWeakTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+XJWeakTimer.m"; sourceTree = "<group>"; };
 		BF084E842124531E0043DA57 /* NSTimer+XJWeakTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+XJWeakTimer.h"; sourceTree = "<group>"; };
 		BF0ECBD82199567900027843 /* xsocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xsocks.h; sourceTree = "<group>"; };
+		BF320749219E91B300BF89DC /* SuperFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SuperFramework.framework; sourceTree = "<group>"; };
 		BFA296BA2148BF9800C1EBF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		BFD3D519219D203B00EA5D75 /* SuperFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SuperFramework.framework; sourceTree = "<group>"; };
-		BFD3D51B219D20CF00EA5D75 /* xsocks.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = xsocks.a; sourceTree = "<group>"; };
+		BFB21B7721A293FE006273F4 /* xsocks.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = xsocks.a; sourceTree = "<group>"; };
 		BFF6ADDA215CABFB0089F58D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,8 +92,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFA296BB2148BF9800C1EBF6 /* Foundation.framework in Frameworks */,
-				BFD3D51A219D203B00EA5D75 /* SuperFramework.framework in Frameworks */,
-				BFD3D51C219D20CF00EA5D75 /* xsocks.a in Frameworks */,
+				BF32074A219E91B400BF89DC /* SuperFramework.framework in Frameworks */,
+				BFB21B7821A293FE006273F4 /* xsocks.a in Frameworks */,
 				BF084E7621244FD60043DA57 /* CocoaAsyncSocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,7 +139,7 @@
 		BF084E3B21244FAD0043DA57 /* SuperTest */ = {
 			isa = PBXGroup;
 			children = (
-				BFD3D519219D203B00EA5D75 /* SuperFramework.framework */,
+				BF320749219E91B300BF89DC /* SuperFramework.framework */,
 				BF084E6E21244FC20043DA57 /* CocoaAsyncSocket.framework */,
 				BF0ECBD72199567900027843 /* ios */,
 				BF084E822124531E0043DA57 /* NSTimer */,
@@ -198,7 +198,7 @@
 		BF0ECBD72199567900027843 /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				BFD3D51B219D20CF00EA5D75 /* xsocks.a */,
+				BFB21B7721A293FE006273F4 /* xsocks.a */,
 				BF0ECBD82199567900027843 /* xsocks.h */,
 			);
 			path = ios;
@@ -540,7 +540,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = zengxianjie.SuperTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 arm64e";
+				VALID_ARCHS = "arm64 arm64e arm7v";
 			};
 			name = Debug;
 		};
@@ -571,7 +571,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = zengxianjie.SuperTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 arm64e";
+				VALID_ARCHS = "arm64 arm64e arm7v";
 			};
 			name = Release;
 		};
