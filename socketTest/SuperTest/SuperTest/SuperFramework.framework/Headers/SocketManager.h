@@ -9,23 +9,22 @@
 - (void)XJSocketBackMessage:(NSString *)msg;
 @end
 
-@interface SocketManager : NSObject <GCDAsyncSocketDelegate,XJSocketBackDelegate>
+@interface SocketManager : NSObject <GCDAsyncSocketDelegate>
 @property (nonatomic,strong) GCDAsyncSocket *socket;
 @property (nonatomic,weak) id <XJSocketBackDelegate> delegate;
 
-+ (instancetype)shareSocketManager;
 
 /**
  连接
  @param host 地址
  @param port 端口
  */
-+  (BOOL)connectServer:(NSString *)host Port:(int)port;
+-  (BOOL)connectServer:(NSString *)host Port:(int)port;
 
 /**
  断开连接
  */
-+ (void)disConnectServer;
+- (void)disConnectServer;
 
 /**
  发送数据

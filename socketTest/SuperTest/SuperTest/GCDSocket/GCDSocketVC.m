@@ -3,7 +3,8 @@
 #import "GCDSocketVC.h"
 
 #import "NSTimer+XJWeakTimer.h"
-
+#import <SuperFramework/SocketManager.h>
+//#import "SocketManager.h"
 //#import <sys/errno.h> 错误码
 @interface GCDSocketVC ()<GCDAsyncSocketDelegate,XJSocketBackDelegate>
 @property (nonatomic,strong) GCDAsyncSocket *socket;
@@ -16,6 +17,8 @@
 @property (nonatomic,assign) BOOL isOpen; //是否连接
 @property (weak, nonatomic) IBOutlet UITextView *teLog;
 @property (nonatomic,assign) int port;
+
+@property (nonatomic,strong) SocketManager *manager;
 
 @end
 
@@ -39,24 +42,20 @@
     
     self.portTF.text = [NSString stringWithFormat:@"%d",_port];
     
-    [SocketManager shareSocketManager];
-    [SocketManager shareSocketManager].delegate = self;
-    [SocketManager connectServer:self.localTF.text Port:_port];
-    //心跳
-    
-    [self addTimer];
+    self.manager = [[SocketManager alloc] init];
+    self.manager.delegate = self;
+    BOOL isConnected = [self.manager connectServer:self.localTF.text Port:_port];
+    NSLog(@"TCP isConnected... %d\n",isConnected);
+    if (isConnected) {
+        //心跳
+        [self addTimer];
+    }
 }
 
 //心跳 保持长链接
 - (void)upupupheart {
     NSString *longContent = @"心跳";
-    NSData *dataStream = [longContent dataUsingEncoding:NSUTF8StringEncoding];
-    SocketManager * manager = [SocketManager shareSocketManager];
-    [manager.socket writeData:dataStream withTimeout:1 tag:1];
-}
-//断开
-- (void)disconnect {
-    [SocketManager disConnectServer];
+    [self.manager sendMessageType:1 Str:longContent];
 }
 
 #pragma mark - 点击事件
@@ -72,7 +71,10 @@
 #pragma mark 断开连接
 - (IBAction)disContentBtn:(id)sender {
 //    _isOpen = NO;
-    [self disconnect];
+    [self.manager disConnectServer];
+    self.manager = nil;
+    
+    [self removeTimer];
 }
 
 #pragma mark GET/POST连接
@@ -82,22 +84,19 @@
 
 #pragma mark 发消息
 - (IBAction)sendBtn:(id)sender {
-     [self.view endEditing:YES];
-    NSData *data = [self.msgTF.text dataUsingEncoding:NSUTF8StringEncoding];
-     SocketManager * manager = [SocketManager shareSocketManager];
-      [manager.socket writeData:data withTimeout:10 tag:10];
+    [self.view endEditing:YES];
+    [self.manager sendMessageType:2 Str:self.msgTF.text];
 }
-
 
 #pragma mark - 心跳
 - (void)addTimer {
     __weak typeof(self) weakSelf = self;
-    self.heartTime = [NSTimer xj_scheduledTimerWithTimeInterval:30 repeats:YES handlerBlock:^{
+    self.heartTime = [NSTimer xj_scheduledTimerWithTimeInterval:20 repeats:YES handlerBlock:^{
         __strong typeof(weakSelf) strongSelf = weakSelf;
         [strongSelf upupupheart];
     }];
     //添加到runloop中
-    [[NSRunLoop mainRunLoop] addTimer:self.heartTime forMode:NSDefaultRunLoopMode];
+    [[NSRunLoop mainRunLoop] addTimer:self.heartTime forMode:NSRunLoopCommonModes];
     
 }
 
