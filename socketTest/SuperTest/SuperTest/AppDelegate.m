@@ -1,6 +1,7 @@
 
 #import "AppDelegate.h"
 #import "GCDSocketVC.h"
+#import "AFNetworkReachabilityManager.h"
 
 @interface AppDelegate ()
 
@@ -11,7 +12,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //在第一行添加
-    XSocksInit(kAppID);
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+    [manager startMonitoring];
+    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        if (status > 0) {
+            XSocksInit(kAppID);
+        }
+    }];
+    
+   
     
     GCDSocketVC *socketVC = [[GCDSocketVC alloc] init];
     self.window.rootViewController = socketVC;
@@ -25,7 +34,7 @@
     XSocksRestore();
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application{
+- (void)applicationDidEnterBackground:(UIApplication *)application {
     //在第一行添加
     XSocksSave();
 }

@@ -4,6 +4,8 @@
 
 #import "NSTimer+XJWeakTimer.h"
 #import <SuperFramework/SocketManager.h>
+
+
 //#import "SocketManager.h"
 //#import <sys/errno.h> 错误码
 @interface GCDSocketVC ()<GCDAsyncSocketDelegate,XJSocketBackDelegate>
@@ -35,11 +37,12 @@
 }
 //创建
 - (void)createSocket {
+    CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
     
 //    _port = XSocksOpenBySuggest(0, kPort, kSuggest);
     
     _port = XSocksOpen(0, kPort);
-    
+
     self.portTF.text = [NSString stringWithFormat:@"%d",_port];
     
     self.manager = [[SocketManager alloc] init];
@@ -50,6 +53,13 @@
         //心跳
         [self addTimer];
     }
+    
+    CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
+    NSLog(@"Linked in %f ms\n", linkTime *1000.0);
+    NSString *custTime = [NSString stringWithFormat:@"耗时 %.3f ms",linkTime*1000.0];
+    [self showMessageWithStr:custTime];
+    
+   
 }
 
 //心跳 保持长链接
@@ -61,11 +71,12 @@
 #pragma mark - 点击事件
 #pragma mark 连接
 - (IBAction)contentBtn:(id)sender {
-    //这样d再点连接就是断开重连。。。
+    //这样再点连接就是断开重连。。。
 //    if ( _isOpen == NO ) {
         //连接
         [self createSocket];
 //    }
+
 }
 
 #pragma mark 断开连接
@@ -107,6 +118,8 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
+    
+    
 }
 
 - (void)dealloc {
@@ -170,10 +183,9 @@
 }
 
 - (void)get {
-//  int port = XSocksOpenBySuggest(0,80,kPort);
-// iOS
-    int port = XSocksOpen(0, 80); //kPort服务端设置的端口号
-    
+  int port = XSocksOpenBySuggest(0,80,kPort);
+//    int port = XSocksOpen(0, 15019); //kPort服务端设置的端口号
+
     NSString *pr = [NSString stringWithFormat:@"%d",port];
     
     //URL: http:// 地址 /minaData/update/list/
@@ -184,11 +196,20 @@
 //
     NSLog(@"\nGET \n port is %d\n URL: is %@\n",port,ob);
     
-   
-    
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
+    
+//    NSMutableURLRequest *mutableRequest = [request mutableCopy];
+//
+//    [mutableRequest addValue:@"application/json" forHTTPHeaderField:@"GET 127.0.0.1 HTTP/1.1"];
+//
+//    //3.把值覆给request
+//    request = [mutableRequest copy];
+//
+//    //4.查看请求头
+//    NSLog(@"查看请求头 %@\n", request.allHTTPHeaderFields);
+    
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
 #pragma clang diagnostic pop
         if (connectionError) {
@@ -198,7 +219,9 @@
         NSInteger i = [self showResoonseCode:response];
         NSLog(@"state code %ld",i);
         
-//        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&connectionError];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:&connectionError];
+        
+        NSLog(@"data %@",dic);
         
         NSString *obj = [NSString stringWithFormat:@"get: statusCode %ld\n",i];
         

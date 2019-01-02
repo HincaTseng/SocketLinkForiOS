@@ -19,3 +19,4 @@ FOUNDATION_EXPORT const unsigned char SuperFrameworkVersionString[];
 #import <SuperFramework/SuperFramework.h>
 
 #import <SuperFramework/SocketManager.h>
+

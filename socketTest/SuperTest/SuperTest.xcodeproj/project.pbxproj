@@ -19,6 +19,7 @@
 		BF084E7621244FD60043DA57 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF084E6E21244FC20043DA57 /* CocoaAsyncSocket.framework */; };
 		BF084E7721244FD60043DA57 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF084E6E21244FC20043DA57 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF084E852124531E0043DA57 /* NSTimer+XJWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF084E832124531E0043DA57 /* NSTimer+XJWeakTimer.m */; };
+		BF51899521DCC2B8002C3DFC /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF51899421DCC2B8002C3DFC /* AFNetworkReachabilityManager.m */; };
 		BFA296BB2148BF9800C1EBF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA296BA2148BF9800C1EBF6 /* Foundation.framework */; };
 		BFB21B7821A293FE006273F4 /* xsocks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB21B7721A293FE006273F4 /* xsocks.a */; };
 		BFD79A9D21ACF542001E7756 /* GCDSocketVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD79A9C21ACF542001E7756 /* GCDSocketVC.m */; };
@@ -79,6 +80,8 @@
 		BF084E832124531E0043DA57 /* NSTimer+XJWeakTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+XJWeakTimer.m"; sourceTree = "<group>"; };
 		BF084E842124531E0043DA57 /* NSTimer+XJWeakTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+XJWeakTimer.h"; sourceTree = "<group>"; };
 		BF0ECBD82199567900027843 /* xsocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xsocks.h; sourceTree = "<group>"; };
+		BF51899321DCC2B8002C3DFC /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		BF51899421DCC2B8002C3DFC /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
 		BFA296BA2148BF9800C1EBF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BFB21B7721A293FE006273F4 /* xsocks.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = xsocks.a; sourceTree = "<group>"; };
 		BFD79A9C21ACF542001E7756 /* GCDSocketVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDSocketVC.m; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 			children = (
 				BFD79AA321AD2193001E7756 /* SuperFramework.framework */,
 				BF084E6E21244FC20043DA57 /* CocoaAsyncSocket.framework */,
+				BF51899321DCC2B8002C3DFC /* AFNetworkReachabilityManager.h */,
+				BF51899421DCC2B8002C3DFC /* AFNetworkReachabilityManager.m */,
 				BF0ECBD72199567900027843 /* ios */,
 				BF084E822124531E0043DA57 /* NSTimer */,
 				BF084E6F21244FC20043DA57 /* GCDSocket */,
@@ -348,6 +353,7 @@
 				BFD79A9D21ACF542001E7756 /* GCDSocketVC.m in Sources */,
 				BF084E4C21244FAF0043DA57 /* main.m in Sources */,
 				BF084E852124531E0043DA57 /* NSTimer+XJWeakTimer.m in Sources */,
+				BF51899521DCC2B8002C3DFC /* AFNetworkReachabilityManager.m in Sources */,
 				BF084E3E21244FAD0043DA57 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,7 +524,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 85CSKMBXX3;
+				DEVELOPMENT_TEAM = 6Y9Y56NCLP;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -537,7 +543,7 @@
 					"$(PROJECT_DIR)/SuperTest",
 					"$(PROJECT_DIR)/SuperTest/ios",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = zengxianjie.SuperTest;
+				PRODUCT_BUNDLE_IDENTIFIER = zengxianjie.SuperTested;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 arm64e arm7v";
@@ -549,7 +555,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 85CSKMBXX3;
+				DEVELOPMENT_TEAM = 6Y9Y56NCLP;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -568,7 +574,7 @@
 					"$(PROJECT_DIR)/SuperTest",
 					"$(PROJECT_DIR)/SuperTest/ios",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = zengxianjie.SuperTest;
+				PRODUCT_BUNDLE_IDENTIFIER = zengxianjie.SuperTested;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 arm64e arm7v";
